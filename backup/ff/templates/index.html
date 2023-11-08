@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop-bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AgriBot - Crop Recommendation</h1>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="temperature">Temperature:</label>
+                <input type="text" id="temperature"  name="temperature" onclick="askForTemperature()" required>
+            </div>
+            <div class="form-group">
+                <label for="humidity">Humidity:</label>
+                <input type="text" id="humidity" name="humidity" onclick="askForHumidity()" required>
+            </div>
+            <div class="form-group">
+                <label for="ph">pH:</label>
+                <input type="text" id="ph" name="ph" onclick="askForPh()" required>
+            </div>
+            <div class="form-group">
+                <label for="rainfall">Rainfall:</label>
+                <input type="text" id="rainfall" name="rainfall" onclick="askForRainfall()" required>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+<!--</body>-->
+<!--</html>-->
+
+
+    <!-- ... other HTML code ... -->
+<script>
+            function askForTemperature() {
+            fetch('/capture_speech', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('temperature').value = data.spokenValue;
+            });
+        }
+
+        function askForHumidity() {
+            fetch('/capture_speech', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('humidity').value = data.spokenValue;
+            });
+        }
+
+        function askForPh() {
+            fetch('/capture_speech', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ph').value = data.spokenValue;
+            });
+        }
+
+        function askForRainfall() {
+            fetch('/capture_speech', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('rainfall').value = data.spokenValue;
+            });
+        }
+
+
+</script>
+<!-- ... other HTML code ... -->
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <script>
+        // JavaScript function to speak the predicted crop using pyttsx3
+        function speakCrop(crop) {
+            var message = new SpeechSynthesisUtterance();
+            message.text = 'The predicted crop is ' + crop;
+            window.speechSynthesis.speak(message);
+        }
+        
+        // Automatically speak the crop when the page loads
+        window.onload = function() {
+            var crop = '{{ crop }}'; // Get the predicted crop from Flask
+            speakCrop(crop); // Call the speakCrop function to speak the crop
+        };
+    </script>
+</head>
+<style>
+        /* Define your primary color */
+        .primary-button {
+            background-color: #007bff; /* This is a blue color; you can change it to your desired primary color */
+            color: #ffffff; /* Text color for the button */
+            padding: 10px 20px; /* Adjust padding as needed */
+            border: none; /* Remove the button border */
+            border-radius: 5px; /* Add rounded corners */
+            cursor: pointer; /* Change the cursor to a pointer on hover */
+        }
+
+        /* Add some hover effect */
+        .primary-button:hover {
+            background-color: #0056b3; /* Darker shade of the primary color on hover */
+        }
+    </style>
+<body >
+<center>
+    <h1>Result</h1>
+    <p>The Recommended crop is: <strong>{{ crop }}</strong></p>
+    
+    <button class="primary-button"><a href= "/">Back to Home</a> </button>
+    </center>
+</body>
+</html>

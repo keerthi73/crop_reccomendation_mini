@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <script>
+        // JavaScript function to speak the predicted crop using pyttsx3
+        function speakCrop(crop) {
+            var message = new SpeechSynthesisUtterance();
+            message.text = 'The predicted crop is ' + crop;
+            window.speechSynthesis.speak(message);
+        }
+        
+        // Automatically speak the crop when the page loads
+        window.onload = function() {
+            var crop = '{{ crop }}'; // Get the predicted crop from Flask
+            speakCrop(crop); // Call the speakCrop function to speak the crop
+        };
+    </script>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <p>The predicted crop is: <strong>{{ crop }}</strong></p>
+    
+    <a href="/">Back to Home</a>
+</body>
+</html>
